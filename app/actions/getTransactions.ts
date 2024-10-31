@@ -1,12 +1,9 @@
-
-
 'use server'
 
 import { auth } from "@clerk/nextjs";
 import { db } from "@/lib/db";
 
-// Change to default export
-const getTransactions = async () => {
+export default async function getTransactions() {
     try {
         const session = await auth();
         const userId = session?.userId;
@@ -26,5 +23,3 @@ const getTransactions = async () => {
         return { transactions: [] };
     }
 }
-
-export default getTransactions;

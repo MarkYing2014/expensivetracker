@@ -6,9 +6,10 @@ import IncomeExpense from "@/components/IncomeExpense";
 import TransactionList from "@/components/TransactionList";
 
 export default async function Home() {
-  const authResult = await auth();
-  const { userId } = authResult ?? {};
+  const session = await auth();
+  const userId = session?.userId;
   const user = await currentUser();
+  
   if (!userId) return <Guest />;
 
   return (
