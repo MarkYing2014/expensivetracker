@@ -1,11 +1,11 @@
-import { SignedIn, SignedOut, SignInButton, SignOutButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton} from "@clerk/nextjs";
 import { UserButton } from "@clerk/nextjs";
-import { checkUser } from "@/lib/checkUser";
+
 
 const Header = async () => {
     try {
-        const user = await checkUser();
-        console.log("User data in header:", user);
+      
+        
 
         return ( 
             <nav className="navbar">

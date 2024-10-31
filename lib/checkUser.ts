@@ -1,11 +1,15 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { currentUser, auth } from "@clerk/nextjs/server";
 import { db } from "@/lib/db";
 import { User } from "@prisma/client";
 
 export const checkUser = async (): Promise<User | null> => {
     try {
+        const { userId } = await auth();
+        
+        if (!userId) return null;
+        
         const user = await currentUser();
-        console.log("Clerk user data:", user);
+      
 
         if (!user) return null;
 

@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/Header";
-
-
-
+import { Toaster } from "@/components/ui/toaster";
 
 import "./globals.css";
 
@@ -38,6 +36,7 @@ export default function RootLayout({
           >
         <Header />
         <main className="container mx-auto p-4">{children}</main>
+        <Toaster />
       </body>
       </html>
     </ClerkProvider>
